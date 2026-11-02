@@ -1,15 +1,14 @@
-import { Input } from "../../../shared/ui/Input"
-import { useTask } from "../../../store/TaskStore"
+import { Input } from "../../../shared/ui/Input";
+import { useTask } from "../../../store/TaskStore";
 
 interface TaskProps {
-  id: string
-  title: string
-  completed: boolean
+  id: string;
+  title: string;
+  completed: boolean;
 }
 
-const Task = ({ title, completed, id}: TaskProps) => {
-
-  const {deleteTask, toggleComplete} = useTask()
+const Task = ({ title, completed, id }: TaskProps) => {
+  const { deleteTask, toggleComplete } = useTask();
 
   return (
     <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 bg-white rounded-xl border border-gray-200 shadow-sm">
@@ -20,7 +19,9 @@ const Task = ({ title, completed, id}: TaskProps) => {
         onChange={() => toggleComplete(id)}
       />
 
-      <span className={`flex-1 text-sm sm:text-base break-words ${completed ? 'line-through text-gray-400' : 'text-gray-800'}`}>
+      <span
+        className={`flex-1 text-sm sm:text-base break-words ${completed ? "line-through text-gray-400" : "text-gray-800"}`}
+      >
         {title}
       </span>
 
@@ -32,7 +33,7 @@ const Task = ({ title, completed, id}: TaskProps) => {
         <img src="/X.svg" alt="Delete" className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default Task
+export default Task;

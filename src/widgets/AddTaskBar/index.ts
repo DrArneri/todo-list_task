@@ -1,1 +1,1 @@
-export { default as AddTaskBar } from './ui/AddTaskBar'
+export { default as AddTaskBar } from "./ui/AddTaskBar";

@@ -1,14 +1,20 @@
-import type { ButtonHTMLAttributes } from "react"
+import type { ButtonHTMLAttributes } from "react";
 import type { VariantProps } from "class-variance-authority";
-import  { buttonVariants } from '../button.variants';
+import { buttonVariants } from "../button.variants";
 import { cn } from "../../../lib/cn";
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof buttonVariants> & {
-    buttonText?: string
-}
+type Props = ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants> & {
+    buttonText?: string;
+  };
 
-
-const Button = ({ variant, className, children, buttonText, ...rest }: Props) => {
+const Button = ({
+  variant,
+  className,
+  children,
+  buttonText,
+  ...rest
+}: Props) => {
   return (
     <button className={cn(buttonVariants({ variant }), className)} {...rest}>
       {buttonText}
@@ -17,4 +23,4 @@ const Button = ({ variant, className, children, buttonText, ...rest }: Props) =>
   );
 };
 
-export default Button
+export default Button;

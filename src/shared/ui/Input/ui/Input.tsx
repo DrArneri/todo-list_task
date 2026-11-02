@@ -1,10 +1,10 @@
-import type { InputHTMLAttributes } from "react"
+import type { InputHTMLAttributes } from "react";
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+};
 
-const Input = ({children, ...rest }: Props) => {
+const Input = ({ children, ...rest }: Props) => {
   if (children) {
     return (
       <div className="relative w-full h-full">
@@ -16,7 +16,7 @@ const Input = ({children, ...rest }: Props) => {
           {children}
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -24,7 +24,7 @@ const Input = ({children, ...rest }: Props) => {
       className="w-full h-full border-1 border-solid border-gray-200 rounded-xl px-3 sm:px-4 text-sm sm:text-base transition-all duration-300 focus:outline-none focus:border-gray-400"
       {...rest}
     />
-  )
-}
+  );
+};
 
-export default Input
+export default Input;
