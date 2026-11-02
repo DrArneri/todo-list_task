@@ -2,7 +2,7 @@ import { Input } from '../../../shared/ui/Input'
 import { Button } from '../../../shared/ui/Button'
 import { useState } from 'react'
 import { useTask } from '../../../store/TaskStore'
-
+import { nanoid } from 'nanoid'
 const AddTaskBar = () => {
     const [title, setTitle] = useState<string>('')
     const {tasks, addTask} = useTask()
@@ -13,7 +13,7 @@ const AddTaskBar = () => {
         }
         
         addTask({
-            id: tasks.length + 1,
+            id: nanoid(),
             title,
             isDone: false,
         })

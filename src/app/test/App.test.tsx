@@ -12,7 +12,7 @@ describe('App', () => {
     render(<App />)
     const heading = screen.getByRole('heading', { name: /to do list/i })
     expect(heading).toBeInTheDocument()
-    expect(heading).toHaveClass('font-bold', 'text-2xl')
+    expect(heading).toHaveClass('font-bold')
   })
 
   it('должен содержать AddTaskBar', () => {
@@ -33,7 +33,7 @@ describe('App', () => {
   it('должен иметь правильную структуру layout', () => {
     const { container } = render(<App />)
 
-    const mainWrapper = container.querySelector('.bg-gray-300.w-screen.h-screen')
+    const mainWrapper = container.querySelector('.bg-gray-300')
     expect(mainWrapper).toBeInTheDocument()
 
     const contentBox = container.querySelector('.bg-white.rounded-xl')

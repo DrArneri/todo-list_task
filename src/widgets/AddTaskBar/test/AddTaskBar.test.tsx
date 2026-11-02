@@ -37,11 +37,13 @@ describe('AddTaskBar', () => {
     await user.type(input, 'Новая задача')
     await user.click(button)
 
-    expect(mockAddTask).toHaveBeenCalledWith({
-      id: 1,
-      title: 'Новая задача',
-      isDone: false,
-    })
+    expect(mockAddTask).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: expect.any(String),
+        title: 'Новая задача',
+        isDone: false,
+      })
+    )
   })
 
   it('не должен добавлять пустую задачу', async () => {
@@ -80,12 +82,12 @@ describe('AddTaskBar', () => {
     expect(input.value).toBe('')
   })
 
-  it('должен корректно генерировать id на основе длины массива tasks', async () => {
+  it('должен корректно генерировать id используя nanoid', async () => {
     const { useTask } = await import('../../../store/TaskStore')
     vi.mocked(useTask).mockReturnValue({
       tasks: [
-        { id: 1, title: 'Задача 1', isDone: false },
-        { id: 2, title: 'Задача 2', isDone: false },
+        { id: '1', title: 'Задача 1', isDone: false },
+        { id: '2', title: 'Задача 2', isDone: false },
       ],
       addTask: mockAddTask,
       deleteTask: vi.fn(),
@@ -102,11 +104,13 @@ describe('AddTaskBar', () => {
     await user.type(input, 'Задача 3')
     await user.click(button)
 
-    expect(mockAddTask).toHaveBeenCalledWith({
-      id: 3,
-      title: 'Задача 3',
-      isDone: false,
-    })
+    expect(mockAddTask).toHaveBeenCalledWith(
+      expect.objectContaining({
+        id: expect.any(String),
+        title: 'Задача 3',
+        isDone: false,
+      })
+    )
   })
 
   it('должен обновлять значение input при вводе', async () => {

@@ -2,9 +2,9 @@ import { Input } from "../../../shared/ui/Input"
 import { useTask } from "../../../store/TaskStore"
 
 interface TaskProps {
-  id: number
+  id: string
   title: string
-  completed:boolean
+  completed: boolean
 }
 
 const Task = ({ title, completed, id}: TaskProps) => {

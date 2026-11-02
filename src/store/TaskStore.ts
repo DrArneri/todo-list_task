@@ -5,9 +5,9 @@ import { persist } from 'zustand/middleware'
 export type TaskStore = {
     tasks: Task[];
     addTask: (task: Task) => void;
-    deleteTask: (id: number) => void;
+    deleteTask: (id: string) => void;
     deleteAllTasks: () => void;
-    toggleComplete: (id:number) => void;
+    toggleComplete: (id: string) => void;
 }
 
 export const useTask = create<TaskStore>()(
@@ -18,14 +18,14 @@ export const useTask = create<TaskStore>()(
                 addTask: (task:Task) => set((state) => ({
                     tasks: [...state.tasks, task]
                 })),
-                deleteTask: (id: number) => set((state) => ({
+                deleteTask: (id: string) => set((state) => ({
                     tasks: state.tasks.filter(t => t.id !== id)
                 })),
                 deleteAllTasks: () => set(() => ({
                     tasks: []
                 })),
 
-                toggleComplete: (id:number) => set((state) => ({
+                toggleComplete: (id: string) => set((state) => ({
                     tasks: state.tasks.map(t => 
                         t.id === id
                         ? {...t, isDone: !t.isDone}
